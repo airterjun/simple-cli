@@ -1,20 +1,20 @@
 {
-  "name": "simpler-cli",
-  "version": "1.0.0",
-  "description": "For fast building angular component on your ng-universal  project",
-  "main": "index.js",
-  "scripts": {
-    "create" : "node ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/airterjun/simple-cli.git"
-  },
-  "author": "Edy Saputra",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/airterjun/simple-cli/issues"
-  },
-  "homepage": "https://github.com/airterjun/simple-cli#readme"
+    "name": "ng-simpler-cli",
+    "version": "1.0.0",
+    "description": "For fast building angular component on your ng-universal project",
+    "main": "index.js",
+    "scripts": {
+        "create": "node ./index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/airterjun/simple-cli.git"
+    },
+    "author": "Edy Saputra",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/airterjun/simple-cli/issues"
+    },
+    "homepage": "https://github.com/airterjun/simple-cli#readme"
 }
