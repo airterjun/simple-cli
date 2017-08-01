@@ -39,8 +39,8 @@ function ComponentContent(options) {
     /**
      * If has selector define
      */
-    if (options.selector) {
-        content += 'selector: "' + options.component.selector + '",';
+    if (options.component.selector) {
+        content += "selector: '" + options.component.selector + "',\n";
     }
 
 

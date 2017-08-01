@@ -40,4 +40,4 @@ module.exports = function cli(config) {
 
     fileCreator(fileNaming);
 
-}
+};
