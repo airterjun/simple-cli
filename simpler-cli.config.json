@@ -1,11 +1,9 @@
 {
-    "config": {
-        "componentFolderDir": "component",
-        "filePrefixAndType": {
-            "ts": "component",
-            "scss": "style",
-            "html": "template",
-            "module-ts": "module"
-        }
+    "componentDir": "component",
+    "filePrefixAndType": {
+        "ts": "component",
+        "scss": "style",
+        "html": "template",
+        "module-ts": "module"
     }
 }

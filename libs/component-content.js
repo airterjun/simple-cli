@@ -1,9 +1,33 @@
-/**
- * @return {string}
- */
-function ComponentContent(config) {
+module.exports = function content(key, options) {
+
+    let content = '';
+
+    switch (key) {
+        case 'component' :
+            content = ComponentContent(options);
+            break;
+
+        case 'style' :
+            content = ':host{}';
+            break;
+
+        case 'template' :
+            content = 'Awesome Angular!';
+            break;
+
+        case 'module' :
+            content = ModuleContent(options);
+            break;
+    }
+
+};
+
+
+function ComponentContent(options) {
 
     var content = '';
+
+    content = '';
 
     /*
      * Component directive
@@ -14,13 +38,13 @@ function ComponentContent(config) {
     /**
      * If has selector define
      */
-    if (config.selector) {
-        content += 'selector: "' + config.selector + '"';
+    if (options.selector) {
+        content += 'selector: "' + options.component.selector + '"';
     }
 
 
-    content += 'templateUrl: ' + config.templateUrl + '"';
-    content += 'styleUrls: ["' + config.templateUrl + '"]';
+    content += "templateUrl: './" + options.template.file + "'";
+    content += "styleUrls: ['./" + options.style.file + "']";
 
 
     /**
@@ -35,4 +59,19 @@ function ComponentContent(config) {
 }
 
 
-module.exports = ComponentContent(config);
+function ModuleContent() {
+
+    let content = '';
+
+    content += "import { NgModule } from '@angular/core'\n\n";
+
+    content += '@NgModule({\n';
+
+    content += '';
+
+    content += '\n})';
+
+
+    return content;
+
+}

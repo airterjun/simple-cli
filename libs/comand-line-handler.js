@@ -1,9 +1,5 @@
-module.exports = function CliHandler() {
+module.exports = function CliHandler(cb) {
 
-    process.argv.forEach(function (val, index, array) {
-        if (index > 1) {
-            newComponent.push(val)
-        }
-    });
+    process.argv.forEach(cb);
 
 };
