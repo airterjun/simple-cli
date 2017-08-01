@@ -1,6 +1,7 @@
+import * as config from "./simpler-cli.config.json";
+import * as fs from 'fs';
+
 let newComponent = [];
-let config = require("./simpler-cli.config.json");
-let fs = require('fs');
 
 process.argv.forEach(function (val, index, array) {
     if (index > 1) {
@@ -19,7 +20,7 @@ dirChecker(config.config.componentFolderDir);
 
 function createFiles(dir) {
 
-    fs.stat(config.config.componentFolderDir + '/' + newComponentDirName, (err, stats) = > {
+    fs.stat(config.config.componentFolderDir + '/' + newComponentDirName, (err, stats) => {
 
         if(err) {
             return fs.mkdir(config.config.componentFolderDir + '/' + newComponentDirName, function () {
