@@ -72,8 +72,9 @@ function ModuleContent(options) {
 
     content += '@NgModule({\n';
 
-    content += "exports : [" + options.component.className + "],";
-    content += "declarations : [" + options.component.className + "],";
+    content += "imports : [CommonModule],\n";
+    content += "exports : [" + options.component.className + "],\n";
+    content += "declarations : [" + options.component.className + "],\n";
 
     content += '\n})\n\n';
 
