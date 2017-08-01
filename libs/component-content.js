@@ -20,38 +20,41 @@ module.exports = function content(key, options) {
             break;
     }
 
+
+    return content;
 };
 
 
 function ComponentContent(options) {
 
-    var content = '';
+    let content = '';
 
-    content = '';
+    content += "import { Component } from '@angular/core'\n\n";
 
     /*
      * Component directive
      */
     content += "@Component({ \n";
 
-
     /**
      * If has selector define
      */
     if (options.selector) {
-        content += 'selector: "' + options.component.selector + '"';
+        content += 'selector: "' + options.component.selector + '",';
     }
 
 
-    content += "templateUrl: './" + options.template.file + "'";
-    content += "styleUrls: ['./" + options.style.file + "']";
+    content += "templateUrl: './" + options.template.file + "',\n";
+    content += "styleUrls: ['./" + options.style.file + "']\n";
 
 
     /**
      * End of component directive
      * @type {string}
      */
-    content += "\n})";
+    content += "\n})\n\n";
+
+    content += "export class " + options.component.className + " { \n constructor(){} \n}";
 
 
     return content;
@@ -59,18 +62,22 @@ function ComponentContent(options) {
 }
 
 
-function ModuleContent() {
+function ModuleContent(options) {
 
     let content = '';
 
-    content += "import { NgModule } from '@angular/core'\n\n";
+    content += "import { NgModule } from '@angular/core'\n";
+    content += "import { CommonModule } from '@angular/common'\n\n";
+    content += "import { " + options.component.className + " } from './" + options.component.file.replace(".ts", '') + "'\n\n";
 
     content += '@NgModule({\n';
 
-    content += '';
+    content += "exports : [" + options.component.className + "],";
+    content += "declarations : [" + options.component.className + "],";
 
-    content += '\n})';
+    content += '\n})\n\n';
 
+    content += "export class " + options.module.className + " { \n constructor(){} \n}";
 
     return content;
 

@@ -1,1 +1,0 @@
-export class testselector=selector-test-componentComponent {}

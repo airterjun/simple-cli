@@ -1,24 +1,30 @@
-let dirHandler = require('./directory-handler');
-let componentContent = require('./component-content');
+const dirHandler = require('./directory-handler');
+const componentContent = require('./component-content');
 
 module.exports = function FileCreator(component) {
 
-    var componentDir = component.rootDir + '/' + component.dir;
+    const componentDir = component.rootDir + '/' + component.dir;
 
-    dirHandler(componentDir);
+    dirHandler(componentDir, createFile);
 
-    for (var key in  component.component) {
-        if (component.component.hasOwnProperty(key)) {
+    function createFile() {
 
-            var file = component.component[key];
-            fs.writeFile(componentDir + file.file, componentContent(key, component), function (err) {
+        for (let key in  component) {
+            if (component.hasOwnProperty(key)) {
 
-                if (err) {
-                    console.log(err)
-                }
-                console.log("The file was created!");
-            });
+                let file = component[key];
 
+                if (file.file === undefined) return;
+
+                require('fs').writeFile("./" + componentDir + "/" + file.file, componentContent(key, component), function (err) {
+
+                    if (err) {
+                        console.log(err)
+                    }
+                    console.log("The file was created!");
+                });
+
+            }
         }
     }
 

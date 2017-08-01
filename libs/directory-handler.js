@@ -1,6 +1,6 @@
-var fs = require('fs');
+const fs = require('fs');
 
-module.exports = function DirHandler(dir) {
+module.exports = function DirHandler(dir, cb) {
 
     if (!dir) return;
 
@@ -9,6 +9,9 @@ module.exports = function DirHandler(dir) {
         if (err) {
             fs.mkdirSync(dir)
         }
+
+        if (cb !== undefined)
+            cb()
     })
 
 };
